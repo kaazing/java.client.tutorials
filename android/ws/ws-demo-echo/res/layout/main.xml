@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+    Copyright (c) 2007-2012, Kaazing Corporation. All rights reserved.
+
+-->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#F27A31">
+
+    <TextView
+        android:id="@+id/locationText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/location_label"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/edit_text_size" />
+
+    <EditText
+        android:id="@+id/location"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/locationText"
+        android:background="@android:drawable/editbox_background"
+        android:text="@string/location_default"
+        android:textSize="@dimen/edit_text_size" >
+
+        <requestFocus />
+    </EditText>
+        
+    <Button
+        android:id="@+id/connect"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/location"
+        android:layout_marginLeft="10dip"
+        android:text="@string/connect_label"
+        android:textSize="@dimen/edit_text_size" />
+
+    <Button
+        android:id="@+id/disconnect"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/location"
+        android:layout_marginLeft="10dip"
+        android:layout_toLeftOf="@+id/connect"
+        android:enabled="false"
+        android:text="@string/disconnect_label"
+        android:textSize="@dimen/edit_text_size" />
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/connect"
+        android:text="@string/message_label"
+        android:textColor="#ffffff" />
+
+    <EditText
+        android:id="@+id/message"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/label"
+        android:background="@android:drawable/editbox_background"
+        android:text="@string/message_default"
+        android:textSize="@dimen/edit_text_size" />
+    
+    <CheckBox
+        android:id="@+id/sendBinaryCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/send"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/message"
+        android:text="@string/sendBinary_label"
+        android:textSize="@dimen/edit_text_size" />
+
+    <Button
+        android:id="@+id/send"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/message"
+        android:layout_marginLeft="10dip"
+        android:enabled="false"
+        android:text="@string/send_label"
+        android:textSize="@dimen/edit_text_size" />
+    
+    <LinearLayout
+        android:id="@+id/logContainer"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/send">
+        
+     	<TextView
+	        android:id="@+id/log"
+	        android:layout_width="fill_parent"
+	        android:layout_height="0dp"
+	        android:layout_weight="1"
+	        android:background="@android:drawable/editbox_background"
+	        android:maxLines="20"
+	        android:scrollbars="horizontal|vertical"
+	        android:textColor="#000000"
+	        android:textSize="@dimen/edit_text_size" />
+     	
+     	<Button
+     	    android:id="@+id/clear"
+     	    style="?android:attr/buttonStyleSmall"
+     	    android:layout_width="wrap_content"
+     	    android:layout_height="wrap_content"
+     	    android:layout_gravity="right"
+     	    android:text="@string/clear_label"
+     	    android:textSize="@dimen/edit_text_size" />
+     	
+    </LinearLayout>
+</RelativeLayout>

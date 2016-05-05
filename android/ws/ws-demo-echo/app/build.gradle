@@ -1,0 +1,33 @@
+apply plugin: 'com.android.application'
+
+repositories {
+    mavenCentral()
+    maven {
+        url "http://artifactory.kaazing.wan/artifactory/libs-releases-local"
+    }
+}
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "com.kaazing.gateway.ws.client.demo"
+        minSdkVersion 19
+        targetSdkVersion 19
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    compile group: 'com.kaazing', name: 'enterprise.android.client.all', version: '4.1.0-RC006'
+    compile 'org.apache.geronimo.specs:geronimo-jms_1.1_spec:1.1.1'
+    compile 'com.google.android:support-v4:r7'
+}
