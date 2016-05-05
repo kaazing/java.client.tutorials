@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WebSocket Demo</string>
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+    <string name="ok_label">OK</string>
+    <string name="cancel_label">Cancel</string>
+    <string name="location_default">ws://sandbox.kaazing.net/echo</string>
+    <string name="disconnect_label">Disconnect</string>
+    <string name="connect_label">Connect</string>
+    <string name="message_default">Hello World!</string>
+    <string name="send_label">Send</string>
+    <string name="clear_label">Clear</string>
+    <string name="location_label">Location</string>
+    <string name="message_label">Message</string>
+    <string name="sendBinary_label">Send Binary</string>
+</resources>

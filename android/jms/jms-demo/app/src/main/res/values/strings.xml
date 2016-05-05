@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name_short">JMS Demo</string>
+    <string name="app_name">JMS Messaging Demo</string>
+    <string name="location_label">Location</string>
+    <string name="connectBtn_label">Connect</string>
+    <string name="disconnectBtn_label">Disconnect</string>
+    <string name="destination_label">Destination</string>
+    <string name="destination_default">/topic/destination</string>
+    <string name="location_default">ws://sandbox.kaazing.net/jms</string>
+    <string name="subscribe_label">Subscribe</string>
+    <string name="unsubscribe_label">Unsubscribe</string>
+    <string name="message_label">Message</string>
+    <string name="message_default">Hello, message</string>
+    <string name="send_label">Send</string>
+    <string name="clear_label">Clear</string>
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+    <string name="ok_label">OK</string>
+    <string name="cancel_label">Cancel</string>
+    <string name="sendBinary_label">Send Binary</string>
+</resources>

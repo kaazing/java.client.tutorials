@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#F27A31">
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="5dp" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/location_label"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="@dimen/edit_text_size" />
+
+        <EditText
+            android:id="@+id/locationText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:text="@string/location_default"
+            android:textSize="@dimen/edit_text_size"
+            android:textColor="@android:color/black"
+            android:background="@android:drawable/editbox_background">
+        </EditText>
+        
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/disconnectBtn"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_marginRight="5dp"
+        android:enabled="false"
+        android:text="@string/disconnectBtn_label"
+        android:textSize="@dimen/edit_text_size" />
+
+    <Button
+        android:id="@+id/connectBtn"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/disconnectBtn"
+        android:layout_alignBottom="@+id/disconnectBtn"
+        android:layout_toLeftOf="@+id/disconnectBtn"
+        android:text="@string/connectBtn_label"
+        android:textSize="@dimen/edit_text_size" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/connectBtn"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp" >
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/destination_label"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="@dimen/edit_text_size" />
+
+        <EditText
+            android:id="@+id/destinationText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:text="@string/destination_default"
+            android:textSize="@dimen/edit_text_size"
+            android:textColor="@android:color/black"
+            android:background="@android:drawable/editbox_background">
+        </EditText>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/subscribeBtn"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/unsubscribeBtn"
+        android:layout_alignBottom="@+id/unsubscribeBtn"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_toLeftOf="@+id/unsubscribeBtn"
+        android:enabled="false"
+        android:text="@string/subscribe_label"
+        android:textSize="@dimen/edit_text_size" />
+    <Button
+        android:id="@+id/unsubscribeBtn"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_marginRight="5dp"
+        android:enabled="false"
+        android:text="@string/unsubscribe_label"
+        android:textSize="@dimen/edit_text_size" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/subscribeBtn"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp" >
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/message_label"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="@dimen/edit_text_size" />
+
+        <EditText
+            android:id="@+id/messageText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:text="@string/message_default"
+            android:textSize="@dimen/edit_text_size"
+            android:textColor="@android:color/black"
+            android:background="@android:drawable/editbox_background">
+        </EditText>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/sendBtn"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/linearLayout3"
+        android:layout_marginRight="5dp"
+        android:enabled="false"
+        android:text="@string/send_label"
+        android:textSize="@dimen/edit_text_size" />
+    <CheckBox
+        android:id="@+id/sendBinaryCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/sendBtn"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/linearLayout3"
+        android:text="@string/sendBinary_label"
+        android:textSize="@dimen/edit_text_size" />
+
+    <LinearLayout
+        android:id="@+id/logContainer"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/sendBtn">
+
+        <TextView
+            android:id="@+id/logView"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@android:drawable/editbox_background"
+            android:scrollbars="horizontal|vertical"
+            android:textColor="#000000"
+            android:maxLines="80"
+            android:textSize="@dimen/edit_text_size" />
+
+        <Button
+            android:id="@+id/clearBtn"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="5dp"
+            android:text="@string/clear_label"
+            android:textSize="@dimen/edit_text_size" />
+
+    </LinearLayout>
+</RelativeLayout>
