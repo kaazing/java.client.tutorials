@@ -1,6 +1,6 @@
 # Java Client Demos
 
-his repository contains simple applications that use Kaazing WebSocket Libraries for Java - both for Android and J2SE applications.
+his repository contains simple applications that use Kaazing WebSocket Libraries for Java.
 
 Applications are built for:
 - [J2SE](j2se)
