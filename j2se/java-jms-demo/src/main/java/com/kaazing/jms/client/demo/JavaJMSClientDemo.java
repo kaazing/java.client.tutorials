@@ -169,7 +169,7 @@ public class JavaJMSClientDemo {
 	}
 
 	public static void main(String[] args) throws InterruptedException, URISyntaxException, IOException, JMSException {
-		JavaJMSClientDemo demo = new JavaJMSClientDemo(new URI("ws://sandbox.kaazing.net/jms"), "", "");
+		JavaJMSClientDemo demo = new JavaJMSClientDemo(new URI("wss://sandbox.kaazing.net/jms"), "", "");
 		System.out.println("Kaazing Java JMS Demo App. Copyright (C) 2016 Kaazing, Inc.");
 		System.out.println("Type the message to send or <exit> to stop.");
 		BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
