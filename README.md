@@ -20,10 +20,12 @@ After installing it, make sure to:
 - update in app/build.gradle the compileSdkVersion, buildToolsVersion, minSdkVersion and targetSdkVersion
 
 In case of errors with "Could not find or load main class org.gradle.wrapper.GradleWrapperMain", add a wrapper in the jms-demo/build.gradle file:
-"
+
+```
 task wrapper(type: Wrapper) {
 gradleVersion = "2.3"
 }
-"
-Run the java.client.demos project, select a virtual device from the list of devices, if created). If not, create a new one with the sdk specified in the above files. 
+```
+
+Run the java.client.demos project, select a virtual device from the list of devices, where the demo will be installed.
 
