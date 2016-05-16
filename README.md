@@ -23,7 +23,7 @@ In case of errors with "Could not find or load main class org.gradle.wrapper.Gra
 
 ```
 task wrapper(type: Wrapper) {
-gradleVersion = "2.3"
+gradleVersion = <gradle-version-installed>
 }
 ```
 
