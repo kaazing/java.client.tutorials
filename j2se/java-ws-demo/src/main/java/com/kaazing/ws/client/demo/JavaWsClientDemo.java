@@ -67,7 +67,7 @@ public class JavaWsClientDemo {
 	}
 
 	public static void main(String[] args) throws InterruptedException, URISyntaxException, IOException, JMSException {
-		JavaWsClientDemo demo = new JavaWsClientDemo(new URI("ws://sandbox.kaazing.net/echo"));
+		JavaWsClientDemo demo = new JavaWsClientDemo(new URI("wss://sandbox.kaazing.net/echo"));
 		System.out.println("Kaazing Java WebSocket	 Demo App. Copyright (C) 2016 Kaazing, Inc.");
 		System.out.println("Type the message to send or <exit> to stop.");
 		BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
