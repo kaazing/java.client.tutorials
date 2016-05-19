@@ -5,7 +5,7 @@
     <string name="password_hint">Password</string>
     <string name="ok_label">OK</string>
     <string name="cancel_label">Cancel</string>
-    <string name="location_default">ws://sandbox.kaazing.net/echo</string>
+    <string name="location_default">wss://sandbox.kaazing.net/echo</string>
     <string name="disconnect_label">Disconnect</string>
     <string name="connect_label">Connect</string>
     <string name="message_default">Hello World!</string>

@@ -205,7 +205,7 @@ public class JavaAmqpClientDemo {
 	}
 
 	public static void main(String[] args) throws InterruptedException, URISyntaxException, IOException {
-		JavaAmqpClientDemo demo = new JavaAmqpClientDemo(new URI("ws://sandbox.kaazing.net/amqp091"), "guest", "guest");
+		JavaAmqpClientDemo demo = new JavaAmqpClientDemo(new URI("wss://sandbox.kaazing.net/amqp091"), "guest", "guest");
 		System.out.println("Kaazing Java AMQP Demo App. Copyright (C) 2016 Kaazing, Inc.");
 		System.out.println("Type the message to send or <exit> to stop.");
 		BufferedReader console = new BufferedReader(new InputStreamReader(System.in));

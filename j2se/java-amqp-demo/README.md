@@ -13,3 +13,8 @@ gradle installDist
 ```bash
 build/install/java-amqp-demo/bin/java-amqp-demo
 ```
+or
+```
+build\install\java-amqp-demo\bin\java-amqp-demo.bat
+```
+
