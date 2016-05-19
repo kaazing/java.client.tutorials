@@ -13,3 +13,7 @@ gradle installDist
 ```bash
 build/install/java-jms-demo/bin/java-jms-demo
 ```
+or
+```
+build\install\java-jms-demo\bin\java-jms-demo.bat
+```
