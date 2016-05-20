@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 repositories {
     mavenCentral()
     maven {
-        url "http://artifactory.kaazing.wan/artifactory/libs-releases-local"
+        url "https://repository.kaazing.com/maven/"
     }
 }
 
@@ -18,6 +18,10 @@ android {
         multiDexEnabled true
     }
 
+ 	lintOptions {
+        abortOnError false
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -27,7 +31,7 @@ android {
 }
 
 dependencies {
-    compile group: 'com.kaazing', name: 'enterprise.android.client.all', version: '4.1.0-RC006'
+    compile 'com.kaazing:enterprise.java.client.all:4.1.0'
     compile 'org.apache.geronimo.specs:geronimo-jms_1.1_spec:1.1.1'
     compile 'com.google.android:support-v4:r7'
 }
