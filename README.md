@@ -10,3 +10,22 @@ Applications are built for:
 - [Android](android)
   - [WebSocket](android/ws)
   - [JMS](android/jms)
+
+
+For Android demo, the easiest way to build the demo with gradle is to use Android Studio.
+After installing it, make sure to:
+- update local.properties file with path to android sdk
+- update project.properties file with android sdk target version 
+- update in AndroidManifest.xml the sdk version used
+- update in app/build.gradle the compileSdkVersion, buildToolsVersion, minSdkVersion and targetSdkVersion
+
+In case of errors with "Could not find or load main class org.gradle.wrapper.GradleWrapperMain", add a wrapper in the jms-demo/build.gradle file:
+
+```
+task wrapper(type: Wrapper) {
+gradleVersion = <gradle-version-installed>
+}
+```
+
+Run the java.client.demos project, select a virtual device from the list of devices, where the demo will be installed.
+
