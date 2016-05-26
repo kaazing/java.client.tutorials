@@ -3,7 +3,7 @@
 This tutorial shows how Android application can communicate over the web with an `echo` service running within Kaazing WebSocket Gateway using Kaazing Java WebSocket Client library. The application sends text messages to the `echo` service over WebSocket.
 The `echo` service, running inside the Kaazing WebSocket Gateway, reflects back the message that is received by the Android application. 
 
-## Minimum Requirements for Running or Building Kaazing Android JMS WebSocket tutorial
+## Minimum Requirements for Running or Building Kaazing Android Echo WebSocket tutorial
 
 * Java 1.8
 * Gradle 2.10 or higher
@@ -21,7 +21,7 @@ The `echo` service, running inside the Kaazing WebSocket Gateway, reflects back 
 	
 ## Interact with Kaazing Java WebSocket Client API
 
-Detailed instructions to create Kaazing Android WebSocket JMS Tutorial from scratch to be able to send and receive JMS messages over WebSocket can be found [here](http://kaazing.com/doc/5.0/websocket_client_docs/dev-android/o_dev_android.html).
+Tutorial how to create Kaazing Android WebSocket Echo application from scratch, to be able to send and receive Echo messages over WebSocket can be found [here](http://kaazing.com/doc/5.0/websocket_client_docs/dev-android/o_dev_android.html).
 
 ## API Documentation
 
