@@ -21,7 +21,7 @@ This tutorial shows how Android application can communicate over the web with an
 
 ## Interact with Kaazing Java WebSocket Client API
 
-Detailed instructions to create Kaazing Android WebSocket JMS Tutorial from scratch to be able to send and receive JMS messages over WebSocket can be found [here](http://kaazing.com/doc/5.0/jms_client_docs/dev-android/o_dev_android.html).
+Tutorial how to create Kaazing Android WebSocket JMS application from scratch, to be able to send and receive JMS messages over WebSocket can be found [here](http://kaazing.com/doc/5.0/jms_client_docs/dev-android/o_dev_android.html).
 
 ## API Documentation
 
