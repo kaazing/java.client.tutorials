@@ -26,12 +26,16 @@ import javax.jms.MessageProducer;
 import javax.jms.Session;
 import javax.jms.TextMessage;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -71,6 +75,11 @@ public class JMSDemoActivity extends FragmentActivity {
     
     private HashMap<String, ArrayDeque<MessageConsumer>> consumers = new HashMap<String, ArrayDeque<MessageConsumer>>();
 
+	private void hideKeyboard() {
+		InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+		imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+	}
+
     /**
      * Called when the activity is first created.
      * @param savedInstanceState If the activity is being re-initialized after 
@@ -100,7 +109,29 @@ public class JMSDemoActivity extends FragmentActivity {
         
 		Logger logger = Logger.getLogger("com.kaazing.gateway.jms.client");
         logger.setLevel(Level.FINE);
-        
+
+		locationText.addTextChangedListener(new TextWatcher() {
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+			}
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+				String url=locationText.getText().toString();
+				if (url.length()>0){
+					connectBtn.setEnabled(true);
+				}
+				else{
+					connectBtn.setEnabled(false);
+				}
+			}
+
+			@Override
+			public void afterTextChanged(Editable s) {
+
+			}
+		});
         
         if (connectionFactory == null) {
 			try {
@@ -112,9 +143,10 @@ public class JMSDemoActivity extends FragmentActivity {
 				logMessage("EXCEPTION: " + e.getMessage());
 			}
         }
-        
+
         connectBtn.setOnClickListener(new OnClickListener() {       	
 			public void onClick(View v) {
+				hideKeyboard();
 				connectBtn.setEnabled(false);
 				dispatchQueue = new DispatchQueue("DispatchQueue");
 		        dispatchQueue.start();
@@ -131,6 +163,7 @@ public class JMSDemoActivity extends FragmentActivity {
         
         subscribeBtn.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
+				hideKeyboard();
 				final String destinationName = destinationText.getText().toString();
 				logMessage("SUBSCRIBE - " + destinationName);
 				dispatchQueue.dispatchAsync(new Runnable() {
@@ -184,6 +217,7 @@ public class JMSDemoActivity extends FragmentActivity {
         
         sendBtn.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
+				hideKeyboard();
 				final boolean sendBinary = sendBinaryCheckBox.isChecked();
 				final String text = messageText.getText().toString();
 				logMessage("SEND: " + text);
@@ -318,7 +352,7 @@ public class JMSDemoActivity extends FragmentActivity {
 			destination = session.createQueue(destinationName);
 		}
 		else {
-			logMessage("Invalid destination name: " + destinationName);
+			logMessage("Invalid destination name: " + destinationName+". Destination should start from '/topic/' or '/queue/'");
 			return null;
 		}
 		return destination;
