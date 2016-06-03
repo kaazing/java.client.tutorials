@@ -19,14 +19,15 @@
             android:layout_height="wrap_content"
             android:text="@string/location_label"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="@dimen/edit_text_size" />
+            android:textSize="@dimen/edit_text_size"
+            android:layout_weight="0.04" />
 
         <EditText
             android:id="@+id/locationText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:layout_weight="1"
+            android:layout_weight="0.85"
             android:ems="10"
             android:text="@string/location_default"
             android:textSize="@dimen/edit_text_size"
@@ -46,18 +47,19 @@
         android:layout_marginRight="5dp"
         android:enabled="false"
         android:text="@string/disconnectBtn_label"
-        android:textSize="@dimen/edit_text_size" />
+        android:textSize="@dimen/edit_text_size"
+        android:layout_toEndOf="@+id/connectBtn" />
 
     <Button
         android:id="@+id/connectBtn"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/disconnectBtn"
-        android:layout_alignBottom="@+id/disconnectBtn"
-        android:layout_toLeftOf="@+id/disconnectBtn"
         android:text="@string/connectBtn_label"
-        android:textSize="@dimen/edit_text_size" />
+        android:textSize="@dimen/edit_text_size"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_alignEnd="@+id/subscribeBtn"
+        android:layout_alignStart="@+id/subscribeBtn" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -129,7 +131,8 @@
             android:layout_height="wrap_content"
             android:text="@string/message_label"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="@dimen/edit_text_size" />
+            android:textSize="@dimen/edit_text_size"
+            android:layout_weight="0.04" />
 
         <EditText
             android:id="@+id/messageText"
@@ -155,7 +158,8 @@
         android:layout_marginRight="5dp"
         android:enabled="false"
         android:text="@string/send_label"
-        android:textSize="@dimen/edit_text_size" />
+        android:textSize="@dimen/edit_text_size"
+        android:layout_alignStart="@+id/unsubscribeBtn" />
     <CheckBox
         android:id="@+id/sendBinaryCheckBox"
         android:layout_width="wrap_content"
@@ -189,7 +193,7 @@
         <Button
             android:id="@+id/clearBtn"
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
+            android:layout_width="89dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:layout_marginRight="5dp"

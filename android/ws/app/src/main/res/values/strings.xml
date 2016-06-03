@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">WebSocket Demo</string>
+    <string name="app_name">Kaazing WebSocket Echo Demo</string>
     <string name="username_hint">Username</string>
     <string name="password_hint">Password</string>
     <string name="ok_label">OK</string>

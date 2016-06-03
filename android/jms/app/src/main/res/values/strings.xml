@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_short">JMS Demo</string>
-    <string name="app_name">JMS Messaging Demo</string>
+    <string name="app_name_short">Kaazing WebSocket JMS Demo</string>
+    <string name="app_name">Kaazing WebSocket JMS Messaging Demo</string>
     <string name="location_label">Location</string>
     <string name="connectBtn_label">Connect</string>
     <string name="disconnectBtn_label">Disconnect</string>
