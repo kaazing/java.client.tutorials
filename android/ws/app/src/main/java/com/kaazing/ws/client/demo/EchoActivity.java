@@ -10,10 +10,14 @@ import java.net.URI;
 import java.nio.ByteBuffer;
 import java.util.concurrent.Semaphore;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
@@ -32,9 +36,9 @@ import com.kaazing.ws.client.demo.LoginDialogFragment.LoginDialogListener;
 
 public class EchoActivity extends FragmentActivity {
 	
-    private TextView location;
-    private TextView message;
-    private TextView log;
+    private TextView locationText;
+    private TextView messageText;
+    private TextView logTextView;
     private Button sendBtn;
     private Button connectBtn;
     private Button disconnectBtn;
@@ -47,22 +51,53 @@ public class EchoActivity extends FragmentActivity {
     private boolean closedExplicitly = false;
     private LoginDialogFragment loginDialog;
 
-    /** Called when the activity is first created. */
+	private void hideKeyboard() {
+		InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+		imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+	}
+
+
+	/** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        location = (TextView)findViewById(R.id.location);
-        message = (TextView)findViewById(	R.id.message);
-        log = (TextView)findViewById(R.id.log);
+        locationText = (TextView)findViewById(R.id.locationText);
+        messageText = (TextView)findViewById(	R.id.messageText);
+        logTextView = (TextView)findViewById(R.id.logView);
         sendBtn = (Button)findViewById(R.id.send);
-        connectBtn = (Button)findViewById(R.id.connect);
-        disconnectBtn = (Button)findViewById(R.id.disconnect);
-        clearBtn = (Button)findViewById(R.id.clear);
+        connectBtn = (Button)findViewById(R.id.connectBtn);
+        disconnectBtn = (Button)findViewById(R.id.disconnectBtn);
+        clearBtn = (Button)findViewById(R.id.clearBtn);
         sendBinaryCheckBox = (CheckBox)findViewById(R.id.sendBinaryCheckBox);
+
+
+		locationText.addTextChangedListener(new TextWatcher() {
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+			}
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+				String url= locationText.getText().toString();
+				if (url.length()>0){
+					connectBtn.setEnabled(true);
+				}
+				else{
+					connectBtn.setEnabled(false);
+				}
+			}
+
+			@Override
+			public void afterTextChanged(Editable s) {
+
+			}
+		});
 
         connectBtn.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
+				hideKeyboard();
             	connectBtn.setEnabled(false);
             	connect();
             }
@@ -70,20 +105,21 @@ public class EchoActivity extends FragmentActivity {
 
         sendBtn.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
+				hideKeyboard();
             	final boolean sendBinary = sendBinaryCheckBox.isChecked();
             	dispatchQueue.dispatchAsync(new Runnable() {
 					public void run() {
 						try {
 							WebSocketMessageWriter messageWriter = webSocket.getMessageWriter();
 							if (sendBinary) {
-								String messageToSend = message.getText().toString();
+								String messageToSend = messageText.getText().toString();
 								ByteBuffer payload = ByteBuffer.wrap(messageToSend.getBytes());
 			                    logMessage("SEND BINARY:" + getHexDump(payload));
 			                    messageWriter.writeBinary(payload);
 							}
 							else {
-								logMessage("SEND: " + message.getText());
-			                    messageWriter.writeText(message.getText());
+								logMessage("SEND: " + messageText.getText());
+			                    messageWriter.writeText(messageText.getText());
 							}
 		                } catch (Exception e) {
 		                    e.printStackTrace();
@@ -102,7 +138,7 @@ public class EchoActivity extends FragmentActivity {
         
         clearBtn.setOnClickListener(new OnClickListener() {		
 			public void onClick(View v) {
-				log.setText("");
+				logTextView.setText("");
 			}
 		});
 
@@ -147,7 +183,7 @@ public class EchoActivity extends FragmentActivity {
 			public void run() {
 				try {
                 	WebSocketFactory webSocketFactory = WebSocketFactory.createWebSocketFactory();
-        			webSocket = webSocketFactory.createWebSocket(URI.create(location.getText().toString()));
+        			webSocket = webSocketFactory.createWebSocket(URI.create(locationText.getText().toString()));
         			webSocket.setChallengeHandler(createChallengehandler());
         			webSocket.connect();
         			logMessage("CONNECTED");
@@ -211,7 +247,7 @@ public class EchoActivity extends FragmentActivity {
     private void logMessage(final String logMessage) {
         runOnUiThread(new Runnable() {
             public void run() {
-                log.setText(logMessage + "\n" + log.getText());
+                logTextView.setText(logMessage + "\n" + logTextView.getText());
             }
         });
     }
