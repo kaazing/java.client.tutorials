@@ -27,7 +27,7 @@ build\install\java-amqp-demo\bin\java-amqp-demo.bat
 
 ## Interact with Kaazing Java WebSocket AMQP Client API
 
-Tutorial how to create Kaazing Java WebSocket AMQP application from scratch to be able to send and receive AMQP messages over WebSocket can be found [here](http://kaazing.com/doc/amqp/4.0/dev-java/o_dev_java.html).
+Checklist how to create Kaazing Java WebSocket AMQP application from scratch to be able to send and receive AMQP messages over WebSocket can be found [here](http://kaazing.com/doc/amqp/4.0/dev-java/o_dev_java.html).
 
 ## API Documentation
 
