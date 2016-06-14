@@ -21,7 +21,7 @@ The `echo` service, running inside the Kaazing WebSocket Gateway, reflects back 
 	
 ## Interact with Kaazing Java WebSocket Client API
 
-Tutorial how to create Kaazing Android WebSocket Echo application from scratch, to be able to send and receive Echo messages over WebSocket can be found [here](http://kaazing.com/doc/5.0/websocket_client_docs/dev-android/o_dev_android.html).
+Checklist how to create Kaazing Android WebSocket Echo application from scratch, to be able to send and receive Echo messages over WebSocket can be found [here](http://kaazing.com/doc/5.0/websocket_client_docs/dev-android/o_dev_android.html).
 
 ## API Documentation
 
