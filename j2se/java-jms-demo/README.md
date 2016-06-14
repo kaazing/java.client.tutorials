@@ -27,7 +27,7 @@ build\install\java-jms-demo\bin\java-jms-demo.bat
 
 ## Interact with Kaazing Java WebSocket Client API
 
-Tutorial how to create Kaazing J2SE WebSocket JMS Tutorial application from scratch, to be able to send and receive JMS messages over WebSocket can be found [here](http://kaazing.com/doc/5.0/jms_client_docs/dev-java/o_dev_java.html).
+Checklist how to create Kaazing J2SE WebSocket JMS Tutorial application from scratch, to be able to send and receive JMS messages over WebSocket can be found [here](http://kaazing.com/doc/5.0/jms_client_docs/dev-java/o_dev_java.html).
 
 ## API Documentation
 
