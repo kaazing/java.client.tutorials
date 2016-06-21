@@ -19,12 +19,12 @@ This tutorial shows how Android application can communicate over the web with an
    - Run the application from Android Studio by selecting Run/Run Project. Refer to [Running Your App](https://developer.android.com/training/basics/firstapp/running-app.html) for more information.
 
 
-## Interact with Kaazing Java WebSocket Client API
+## Interact with Kaazing Android JMS Client API
 
-Checklist how to create Kaazing Android WebSocket JMS application from scratch, to be able to send and receive JMS messages over WebSocket can be found [here](http://kaazing.com/doc/5.0/jms_client_docs/dev-android/o_dev_android.html).
+Checklist how to create Kaazing Android JMS application from scratch, to be able to send and receive JMS messages over WebSocket can be found [here](http://kaazing.com/doc/5.0/jms_client_docs/dev-android/o_dev_android.html).
 
 ## API Documentation
 
 API Documentation for Kaazing Java WebSocket JMS Client library is available:
 
-* [Kaazing JMS](https://kaazing.com/doc/jms/4.0/apidoc/client/java/jms/index.html)
+* [Kaazing JMS](http://kaazing.com/doc/5.0/jms_client_docs/apidoc/client/android/jms/index.html)
