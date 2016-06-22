@@ -82,3 +82,7 @@ DerivedData
 *.x86_64
 *.hex
 
+
+android/ws/local.properties
+
+android/jms/local.properties
