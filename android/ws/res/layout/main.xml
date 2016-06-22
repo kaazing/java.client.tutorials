@@ -85,12 +85,12 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/message"
-        android:layout_marginLeft="10dip"
+        android:layout_below="@id/messageText"
+        android:layout_marginStart="10dip"
         android:enabled="false"
         android:text="@string/send_label"
-        android:textSize="@dimen/edit_text_size" />
+        android:textSize="@dimen/edit_text_size"
+        android:layout_alignParentEnd="true" />
     
     <LinearLayout
         android:id="@+id/logContainer"
