@@ -19,7 +19,7 @@ The `echo` service, running inside the Kaazing WebSocket Gateway, reflects back 
    - Create Android Virtual Device (AVD) for API level 19 (KitKat) or higher. For more information refer to [Create and Manage Virtual Devices](https://developer.android.com/studio/run/managing-avds.html)
    - Run the application from Android Studio by selecting Run/Run Project. Refer to [Running Your App](https://developer.android.com/training/basics/firstapp/running-app.html) for more information.
 	
-## Interact with Kaazing Java WebSocket Client API
+## Interact with Kaazing Android WebSocket Client API
 
 Checklist how to create Kaazing Android WebSocket Echo application from scratch, to be able to send and receive Echo messages over WebSocket can be found [here](http://kaazing.com/doc/5.0/websocket_client_docs/dev-android/o_dev_android.html).
 
@@ -27,5 +27,5 @@ Checklist how to create Kaazing Android WebSocket Echo application from scratch,
 
 API Documentation for Kaazing Java WebSocket Client library is available:
 
-* [Kaazing WebSocket](https://kaazing.com/doc/legacy/4.0/apidoc/client/java/gateway/index.html)
+* [Kaazing Android WebSocket API](http://kaazing.com/doc/5.0/websocket_client_docs/apidoc/client/android/gateway/index.html)
 
