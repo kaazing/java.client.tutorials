@@ -25,6 +25,7 @@ or
 ```
 build\install\java-amqp-demo\bin\java-amqp-demo.bat
 ```
+**Note:** If you encounter an exception, try running the program as the root user (`sudo`).
 
 ## Interact with Kaazing Java AMQP Client API
 
