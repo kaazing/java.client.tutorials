@@ -1,12 +1,13 @@
-# Kaazing J2SE WebSocket AMQP Tutorial
+# Kaazing J2SE AMQP Tutorial
 
-This tutorial shows how J2SE console application can communicate over the web with an AMQP server via Kaazing WebSocket Gateway using Kaazing Java WebSocket Client library. The application publishes text messages via Kaazing Gateway to an AMQP server and listens to the messages from the AMQP server over WebSocket.
-## Minimum Requirements for Running or Building Kaazing J2SE WebSocket AMQP tutorial
+This J2SE console app communicates over WebSocket with an AMQP server via Kaazing WebSocket Gateway. The app subscribes to a destination and publishes and receives messages.
+
+## Minimum Requirements for Running or Building Kaazing J2SE AMQP tutorial
 
 * Java 1.8
 * Gradle 2.10 or higher
 
-## Steps for building and running the project
+## Steps for Building and Running the Project
 
 - Build the application using gradle
 
@@ -25,12 +26,12 @@ or
 build\install\java-amqp-demo\bin\java-amqp-demo.bat
 ```
 
-## Interact with Kaazing Java WebSocket AMQP Client API
+## Interact with Kaazing Java AMQP Client API
 
-Checklist how to create Kaazing Java WebSocket AMQP application from scratch to be able to send and receive AMQP messages over WebSocket can be found [here](http://kaazing.com/doc/amqp/4.0/dev-java/o_dev_java.html).
+Documentation that explains how to create a Kaazing Java AMQP application from scratch to send and receive AMQP messages over WebSocket can be found [here](http://kaazing.com/doc/5.0/amqp_client_docs/dev-java/o_dev_java.html).
 
 ## API Documentation
 
-API Documentation for Kaazing Java WebSocket AMQP Client library is available:
+API Documentation for Kaazing Java AMQP Client library is available:
 
-* [Kaazing AMQP](http://kaazing.com/doc/amqp/4.0/apidoc/client/java/amqp/client/index.html)
+* [Kaazing AMQP](http://kaazing.com/doc/5.0/amqp_client_docs/apidoc/client/java/amqp/client/index.html)
