@@ -1,8 +1,8 @@
-# Kaazing J2SE WebSocket JMS Tutorial
+# Kaazing J2SE JMS Tutorial
 
-This tutorial shows how J2SE console application can communicate over the web with an JMS server via Kaazing WebSocket Gateway using Kaazing Java WebSocket Client library. The application publishes text messages via Kaazing Gateway to a JMS server and listens to the messages from the JMS server over WebSocket.
+This J2SE console app communicates over WebSocket with a JMS server via Kaazing WebSocket Gateway. The app publishes text messages via Kaazing Gateway to a JMS server and listens for messages from the JMS server.
 
-## Minimum Requirements for Running or Building Kaazing J2SE WebSocket JMS tutorial
+## Minimum Requirements for Running or Building Kaazing J2SE JMS tutorial
 
 * Java 1.8
 * Gradle 2.10 or higher
@@ -27,10 +27,10 @@ build\install\java-jms-demo\bin\java-jms-demo.bat
 
 ## Interact with Kaazing Java WebSocket Client API
 
-Checklist how to create Kaazing J2SE WebSocket JMS Tutorial application from scratch, to be able to send and receive JMS messages over WebSocket can be found [here](http://kaazing.com/doc/5.0/jms_client_docs/dev-java/o_dev_java.html).
+Documentation that explains how to create a Kaazing Java JMS application from scratch to send and receive  messages over WebSocket can be found [here](http://kaazing.com/doc/5.0/jms_client_docs/dev-java/o_dev_java.html).
 
 ## API Documentation
 
 API Documentation for Kaazing Java WebSocket JMS Client library is available:
 
-* [Kaazing JMS](https://kaazing.com/doc/jms/4.0/apidoc/client/java/jms/index.html)
+* [Kaazing JMS](https://kaazing.com/doc/5.0/jms_client_docs/apidoc/client/java/jms/index.html)
