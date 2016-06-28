@@ -1,14 +1,13 @@
 # Kaazing J2SE WebSocket Echo Tutorial
 
-This tutorial shows how J2SE console application can communicate over the web with an `echo` service running within Kaazing WebSocket Gateway using Kaazing Java WebSocket Client library. The application sends text messages to the `echo` service over WebSocket.
-The `echo` service, running inside the Kaazing WebSocket Gateway, reflects back the message that is received by the J2SE application. 
+This J2SE console app communicates over WebSocket with an `Echo` service hosted by Kaazing WebSocket Gateway. The app sends messages and receives messages with the `Echo` service over WebSocket.
 
 ## Minimum Requirements for Running or Building Kaazing J2SE WebSocket Echo tutorial
 
 * Java 1.8
 * Gradle 2.10 or higher
 
-## Steps for building and running the project
+## Steps for Building and Running the Project
 
 - Build the application using gradle
 
@@ -27,9 +26,13 @@ or
 build\install\java-ws-demo\bin\java-ws-demo.bat
 ```
 
+Interact with Kaazing Java WebSocket Client API
+
+Documentation that explains how to create a Kaazing Java WebSocket application from scratch can be found [here](http://kaazing.com/doc/5.0/websocket_client_docs/dev-java/o_dev_java.html).
+
 ## API Documentation
 
 API Documentation for Kaazing Java WebSocket Client library is available:
 
-* [Kaazing WebSocket](https://kaazing.com/doc/legacy/4.0/apidoc/client/java/gateway/index.html)
+* [Kaazing WebSocket](http://kaazing.com/doc/5.0/websocket_client_docs/apidoc/client/java/gateway/index.html)
 
