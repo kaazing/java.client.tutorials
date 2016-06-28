@@ -1,11 +1,11 @@
-# Kaazing Tutorials for Java
+# Kaazing Tutorials for Java and Android
 
-This repository contains tutorials that use Kaazing WebSocket Libraries for Java.
+This repository contains tutorials that use Kaazing WebSocket Libraries for Java and Android.
 
-Kaazing WebSocket Libraries for Java are available via Maven, Gradle or direct download. Visit [Kaazing Downloads](http://kaazing.com/download/) for more information how to obtain client libraries.
+Kaazing WebSocket Libraries for Java and Android are available via Maven, Gradle or direct download. Visit [kaazing.com/download](http://kaazing.com/download/) to obtain the client libraries.
 
 
-Tutorials are built for:
+Tutorials apps are built for the following platforms and protocols:
 - [J2SE](j2se)
   - [WebSocket](j2se/java-ws-demo)
   - [JMS](j2se/java-jms-demo)
@@ -14,15 +14,3 @@ Tutorials are built for:
   - [WebSocket](android/ws)
   - [JMS](android/jms)
 
-For Android demo, the easiest way to build the demo using gradle is with Android Studio. After installing it, make sure to update the following files with the android sdk path or sdk version:
-- local.properties
-- project.properties
-- AndroidManifest.xml
-- app/build.gradle
-
-In case of errors with "Could not find or load main class org.gradle.wrapper.GradleWrapperMain", add a wrapper in the jms-demo/build.gradle file:
-task wrapper(type: Wrapper) {
-gradleVersion = <gradle-version-installed>
-}
-
-Run the java.client.demos project, select a virtual device from the list of devices, where the demo will be installed.
