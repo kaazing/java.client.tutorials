@@ -34,7 +34,7 @@ gradleVersion = <gradle-version-installed>
 
 ## Interact with Kaazing Android JMS Client API
 
-Checklist how to create Kaazing Android JMS application from scratch, to be able to send and receive JMS messages over WebSocket can be found [here](http://kaazing.com/doc/5.0/jms_client_docs/dev-android/o_dev_android.html).
+Documentation on how to create a Kaazing Android JMS app from scratch can be found [here](http://kaazing.com/doc/5.0/jms_client_docs/dev-android/o_dev_android.html).
 
 ## API Documentation
 
