@@ -1,6 +1,6 @@
 # Kaazing Android WebSocket JMS Tutorial
 
-This tutorial shows how Android application can communicate over the web with an JMS server via Kaazing WebSocket Gateway using Kaazing Java WebSocket Client library. The application publishes text messages via Kaazing Gateway to a JMS server and listens to the messages from the JMS server over WebSocket.
+This Android app communicates with an JMS server via Kaazing WebSocket Gateway. The app publishes text messages to a JMS server and listens for messages from the JMS server over WebSocket.
 
 ## Minimum Requirements for Running or Building Kaazing Android JMS WebSocket tutorial
 
@@ -9,7 +9,7 @@ This tutorial shows how Android application can communicate over the web with an
 * Android Studio 2.10 or higher
 * Android SDK 4.4 or higher
 
-## Steps for building and running the project
+## Steps for Building and Running the Project
 
 - Build the application using Android Studio
    - Open the project in Android Studio by navigating to the project directory
@@ -18,6 +18,19 @@ This tutorial shows how Android application can communicate over the web with an
    - Create Android Virtual Device (AVD) for API level 19 (KitKat) or higher. For more information refer to [Create and Manage Virtual Devices](https://developer.android.com/studio/run/managing-avds.html)
    - Run the application from Android Studio by selecting Run/Run Project. Refer to [Running Your App](https://developer.android.com/training/basics/firstapp/running-app.html) for more information.
 
+After installing Android Studio, update the following files with the Android SDK path or version (if necessary):
+- local.properties
+- project.properties
+- AndroidManifest.xml
+- app/build.gradle
+
+In you experience the error `Could not find or load main class org.gradle.wrapper.GradleWrapperMain`, add a wrapper in the build.gradle file:
+
+```
+task wrapper(type: Wrapper) {
+gradleVersion = <gradle-version-installed>
+}
+```
 
 ## Interact with Kaazing Android JMS Client API
 
