@@ -37,7 +37,7 @@ build\install\java-jms-demo\bin\java-jms-demo.bat
 ```
 - To use credentials with our default URI:
 ```
-/java-jms-demo 'joe' `welcome`
+/java-jms-demo 'joe' 'welcome'
 ```
 - If you have setup your gateway for authentification :
 ```
