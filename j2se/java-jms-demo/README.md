@@ -26,7 +26,7 @@ or
 ```
 build\install\java-jms-demo\bin\java-jms-demo.bat
 ```
-**NOTE** The application can be run in the folowing ways:
+**NOTE:** The application can be run in the folowing ways:
 - To connect to our defult URI:
 ```
 /java-jms-demo

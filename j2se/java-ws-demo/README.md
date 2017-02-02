@@ -27,7 +27,7 @@ or
 ```
 build\install\java-ws-demo\bin\java-ws-demo.bat
 ```
-**NOTE** The application can be run in the folowing ways:
+**NOTE:** The application can be run in the folowing ways:
 - To connect to our defult URI:
 ```
 /java-ws-demo
