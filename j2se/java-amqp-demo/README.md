@@ -28,7 +28,7 @@ or
 build\install\java-amqp-demo\bin\java-amqp-demo.bat
 ```
 
-**NOTE** The application can be run in the folowing ways:
+**NOTE:** The application can be run in the folowing ways:
 - To connect to our default URI and default credentials (guest/guest):
 ```
 /java-amqp-demo
@@ -39,7 +39,7 @@ build\install\java-amqp-demo\bin\java-amqp-demo.bat
 ```
 - To use credentials with our default URI:
 ```
-/java-aqmp-demo 'username' `password`
+/java-aqmp-demo 'username' 'password'
 ```
 - If you have setup your gateway for authentification:
 ```
