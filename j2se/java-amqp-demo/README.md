@@ -9,6 +9,8 @@ This J2SE console app communicates over WebSocket with an AMQP server via Kaazin
 
 ## Steps for Building and Running the Project
 
+- Install gradle: follow the steps [here](https://gradle.org/gradle-download/).
+
 - Build the application using gradle
 
 ```bash
@@ -25,6 +27,25 @@ or
 ```
 build\install\java-amqp-demo\bin\java-amqp-demo.bat
 ```
+
+**NOTE** The application can be run in the folowing ways:
+	1. If you want to connect to our default URI and default credentials (guest/guest):
+	```
+	/java-amqp-demo
+	```
+	2. If you want to connect to your own local Kaazing Gateway URI (ex: *ws://localhost:8000/zmqp*):
+	```
+	/java-jms-demo '{YOUR.GATEWAY.URI}'
+	```
+	3. If you want to use credentials with our default URI:
+	```
+	/java-aqmp-demo 'username' `password`
+	```
+	4. If you have setup your gateway for authentification:
+	```
+	/java-jms-demo '{YOUR.GATEWAY.URI}' '{USERNAME}' '{PASSWORD}' 
+	```
+
 **Note:** If you encounter an exception, try running the program as the root user (`sudo`).
 
 ## Interact with Kaazing Java AMQP Client API
