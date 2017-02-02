@@ -28,14 +28,14 @@ or
 build\install\java-ws-demo\bin\java-ws-demo.bat
 ```
 **NOTE** The application can be run in the folowing ways:
-	1. If you want to connect to our defult URI:
-	```
-	/java-ws-demo
-	```
-	2. If you want to connect to your own local Kaazing Gateway URI (ex: *ws://localhost:8000/echo*):
-	```
-	/java-ws-demo '{YOUR.GATEWAY.URI}'
-	```
+- To connect to our defult URI:
+```
+/java-ws-demo
+```
+- To connect to your own local Kaazing Gateway URI (ex: *ws://localhost:8000/echo*):
+```
+/java-ws-demo '{YOUR.GATEWAY.URI}'
+```
 
 **Note:** If you encounter an exception, try running the program as the root user (`sudo`).
 
