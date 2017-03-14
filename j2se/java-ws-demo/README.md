@@ -9,6 +9,8 @@ This J2SE console app communicates over WebSocket with an `Echo` service hosted 
 
 ## Steps for Building and Running the Project
 
+- Install gradle: follow the steps [here](https://gradle.org/gradle-download/).
+
 - Build the application using gradle
 
 ```bash
@@ -25,14 +27,25 @@ or
 ```
 build\install\java-ws-demo\bin\java-ws-demo.bat
 ```
+**NOTE:** The application can be run in the folowing ways:
+- To connect to our defult URI:
+```
+/java-ws-demo
+```
+- To connect to your own local Kaazing Gateway URI (ex: *ws://localhost:8000/echo*):
+```
+/java-ws-demo '{YOUR.GATEWAY.URI}'
+```
 
-Interact with Kaazing Java WebSocket Client API
+**Note:** If you encounter an exception, try running the program as the root user (`sudo`).
 
-Documentation that explains how to create a Kaazing Java WebSocket application from scratch can be found [here](http://kaazing.com/doc/5.0/websocket_client_docs/dev-java/o_dev_java.html).
+## Interact with Kaazing Java AMQP Client API
+
+Documentation that explains how to create a Kaazing Java AMQP application from scratch to send and receive AMQP messages over WebSocket can be found [here](http://kaazing.com/doc/5.0/amqp_client_docs/dev-java/o_dev_java.html).
 
 ## API Documentation
 
-API Documentation for Kaazing Java WebSocket Client library is available:
+API Documentation for Kaazing Java AMQP Client library is available:
 
-* [Kaazing WebSocket](http://kaazing.com/doc/5.0/websocket_client_docs/apidoc/client/java/gateway/index.html)
+* [Kaazing AMQP](http://kaazing.com/doc/5.0/amqp_client_docs/apidoc/client/java/amqp/client/index.html)
 

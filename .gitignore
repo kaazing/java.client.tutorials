@@ -17,6 +17,9 @@ out
 build-local.properties
 .gradle
 build
+gradle
+gradlew
+gradlew.bat
 
 # Github java basic 
 *.class

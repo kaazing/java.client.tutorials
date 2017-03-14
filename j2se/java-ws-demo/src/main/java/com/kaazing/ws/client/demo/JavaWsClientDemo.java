@@ -18,10 +18,15 @@ import com.kaazing.net.ws.WebSocketMessageWriter;
 public class JavaWsClientDemo {
 	private WebSocketFactory wsFactory;
 	private WebSocket webSocket;
+	private final URI url;
 
 
 
 	public JavaWsClientDemo(URI url) throws URISyntaxException, IOException {
+		this.url = url;
+	}
+
+	public void handleConnection() {
 		wsFactory = WebSocketFactory.createWebSocketFactory();
 		wsFactory.setDefaultRedirectPolicy(HttpRedirectPolicy.ALWAYS);
 		final URI wsUrl = url;
@@ -29,18 +34,21 @@ public class JavaWsClientDemo {
 			public void run() {
 				try {
 					webSocket = wsFactory.createWebSocket(wsUrl);
-
+                    System.out.println("Connecting to: " + wsUrl + ". Please wait!");
 					webSocket.connect();
 					final WebSocketMessageReader messageReader = webSocket.getMessageReader();
 					WebSocketMessageType type = null;
 					System.out.println("Connected to "+wsUrl);
 					System.out.println("Type the message to send or <exit> to stop.");
+                    System.out.print("\nUser input: ");
 					while ((type = messageReader.next()) != WebSocketMessageType.EOS) {
 						switch (type) {
 
 						case TEXT:
 							CharSequence text = messageReader.getText();
-							System.out.println(">>> RESPONSE:" + text.toString());
+							System.out.println("<- RESPONSE:" + text.toString());
+                            System.out.print("\nUser input: ");
+
 							break;
 						default:
 							System.err.println("Received a message of unexpected type: " + type);
@@ -64,21 +72,9 @@ public class JavaWsClientDemo {
 	public void sendMessage(String message) throws IOException {
 		WebSocketMessageWriter messageWriter = webSocket.getMessageWriter();
 		messageWriter.writeText(message);
-		System.out.println("MESSAGE PUBLISHED: " + message);
+		System.out.println("-> MESSAGE PUBLISHED: " + message);
 	}
 
-	public static void main(String[] args) throws InterruptedException, URISyntaxException, IOException, JMSException {
-		JavaWsClientDemo demo = new JavaWsClientDemo(new URI("wss://sandbox.kaazing.net/echo"));
-		System.out.println("Kaazing Java WebSocket	 Demo App. Copyright (C) 2016 Kaazing, Inc.");		
-		BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
-		while (true) {
-			String text = console.readLine();
-			if (text.toLowerCase().equals("<exit>"))
-				break;
-			// Send as a text
-			demo.sendMessage(text);
-		}
-		demo.disconnect();
-	}
+
 
 }

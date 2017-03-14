@@ -9,6 +9,8 @@ This J2SE console app communicates over WebSocket with a JMS server via Kaazing 
 
 ## Steps for building and running the project
 
+- Install gradle: follow the steps [here](https://gradle.org/gradle-download/).
+
 - Build the application using gradle
 
 ```bash
@@ -23,6 +25,23 @@ build/install/java-jms-demo/bin/java-jms-demo
 or
 ```
 build\install\java-jms-demo\bin\java-jms-demo.bat
+```
+**NOTE:** The application can be run in the folowing ways:
+- To connect to our defult URI:
+```
+/java-jms-demo
+```
+-To your own local Kaazing Gateway URI (ex: *ws://localhost:8000/jms*):
+```
+/java-jms-demo '{YOUR.GATEWAY.URI}'
+```
+- To use credentials with our default URI:
+```
+/java-jms-demo 'joe' 'welcome'
+```
+- If you have setup your gateway for authentification :
+```
+/java-jms-demo '{YOUR.GATEWAY.URI}' '{USERNAME}' '{PASSWORD}' 
 ```
 
 ## Interact with Kaazing Java WebSocket Client API

@@ -22,6 +22,8 @@ import com.kaazing.net.ws.amqp.ChannelEvent;
 import com.kaazing.net.ws.amqp.ConnectionEvent;
 import com.kaazing.net.ws.amqp.ConnectionListener;
 
+import javax.net.ssl.SSLHandshakeException;
+
 public class JavaAmqpClientDemo {
 	private AmqpClient amqpClient;
 	private AmqpChannel publishChannel = null;
@@ -31,10 +33,19 @@ public class JavaAmqpClientDemo {
 	private final String myConsumerTag = "clientkey";
 	private final String routingKey = "broadcastkey";
 	private final String virtualHost = "/";
-	private String login;
+	private final String url;
+	private final String login;
+	private final String password;
 
-	public JavaAmqpClientDemo(URI url, String login, String password) throws InterruptedException {
+
+	public JavaAmqpClientDemo(String url, String login, String password) throws InterruptedException {
+		this.url = url;
 		this.login = login;
+		this.password = password;
+	}
+
+	public void handleConnection() throws InterruptedException {
+
 		AmqpClientFactory amqpClientFactory = AmqpClientFactory.createAmqpClientFactory();
 		amqpClient = amqpClientFactory.createAmqpClient();
 		System.out.println("CONNECTING: " + url + " " + login + "/" + password);
@@ -62,6 +73,7 @@ public class JavaAmqpClientDemo {
 				if (consumeChannel != null) {
 					consumeChannel.closeChannel(0, "", 0, 0);
 				}
+				System.exit(0);
 
 			}
 
@@ -70,7 +82,7 @@ public class JavaAmqpClientDemo {
 				System.exit(-1);
 			}
 		});
-		amqpClient.connect(url.toString(), virtualHost, login, password);
+		amqpClient.connect(url, virtualHost, login, password);
 		connectionLatch.await(10, TimeUnit.SECONDS);
 
 		final CountDownLatch pubChannelLatch = new CountDownLatch(1);
@@ -119,7 +131,8 @@ public class JavaAmqpClientDemo {
 
 			@Override
 			public void onConsumeBasic(ChannelEvent e) {
-				System.out.println("CONSUME FROM QUEUE: " + queueName);
+				System.out.println("CONSUME FROM QUEUE: " + queueName +"\n");
+				System.out.print("User input: ");
 			}
 
 			@Override
@@ -141,15 +154,15 @@ public class JavaAmqpClientDemo {
 				final Long dt = (Long) e.getArgument("deliveryTag");
 				final String value = new String(bytes, Charset.forName("UTF-8"));
 
-				System.out.println(">>> MESSAGE RECEIVED: " + value);
+				System.out.println("<- MESSAGE RECEIVED: " + value);
 				AmqpProperties props = e.getAmqpProperties();
 				if (props != null) {
 					AmqpArguments headers = props.getHeaders();
-
+					System.out.println("Amqp properties: ");
 					if (headers != null) {
-						System.out.println("Headers: " + headers.toString());
+						System.out.println("- Headers: " + headers.toString());
 					}
-					System.out.println("Properties " + (String) props.toString());
+					System.out.println("- Properties " + (String) props.toString());
 
 					// Acknowledge the message as we passed in a 'false' for
 					// noAck in AmqpChannel.consumeBasic() call. If the
@@ -160,6 +173,7 @@ public class JavaAmqpClientDemo {
 					AmqpChannel channel = e.getChannel();
 					channel.ackBasic(dt.longValue(), true);
 				}
+				System.out.print("\nUser input: ");
 			}
 
 			@Override
@@ -177,6 +191,11 @@ public class JavaAmqpClientDemo {
 	}
 
 	public void sendMessage(String message) {
+		// This check needs to be done, otherwise if the user would hit enter without a message,
+		// nothing would be sent and the program would disconnect and terminate
+		if(message.equals("")){
+			message = " ";
+		}
 		
 		ByteBuffer buffer = ByteBuffer.allocate(512);
 		buffer.put(message.getBytes(Charset.forName("UTF-8")));
@@ -201,22 +220,6 @@ public class JavaAmqpClientDemo {
 		props.setHeaders(customHeaders);
 
 		publishChannel.publishBasic(buffer, props, exchangeName, routingKey, false, false);
-		System.out.println("MESSAGE PUBLISHED: " + message);
+		System.out.println("-> MESSAGE PUBLISHED: " + message);
 	}
-
-	public static void main(String[] args) throws InterruptedException, URISyntaxException, IOException {
-		JavaAmqpClientDemo demo = new JavaAmqpClientDemo(new URI("wss://sandbox.kaazing.net/amqp091"), "guest", "guest");
-		System.out.println("Kaazing Java AMQP Demo App. Copyright (C) 2016 Kaazing, Inc.");
-		System.out.println("Type the message to send or <exit> to stop.");
-		BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
-		while (true) {
-			String text = console.readLine();
-			if (text.toLowerCase().equals("<exit>"))
-				break;
-			// Send as a text
-			demo.sendMessage(text);
-		}
-		demo.disconnect();
-	}
-
 }
