@@ -11,13 +11,13 @@ public class AmqpDemoClientMain {
         JavaAmqpClientDemo demo = null;
         switch (args.length){
             case 0:
-                demo = new JavaAmqpClientDemo("ws://sandbox.kaazing.net/amqp091", "guest", "guest");
+                demo = new JavaAmqpClientDemo("ws://demos.kaazing.com/amqp", "guest", "guest");
                 break;
             case 1:
                 demo = new JavaAmqpClientDemo(args[0], "guest", "guest");
                 break;
             case 2:
-                demo = new JavaAmqpClientDemo("ws://sandbox.kaazing.net/jms", args[0], args[1]);
+                demo = new JavaAmqpClientDemo("ws://demos.kaazing.com/jms", args[0], args[1]);
                 break;
             case 3:
                 demo = new JavaAmqpClientDemo(args[0], args[1], args[2]);
