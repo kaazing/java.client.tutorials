@@ -16,13 +16,13 @@ public class JMSDemoClientMain {
         JavaJMSClientDemo demo = null;
         switch (args.length){
             case 0:
-                demo = new JavaJMSClientDemo(new URI("ws://sandbox.kaazing.net/jms"), "", "");
+                demo = new JavaJMSClientDemo(new URI("ws://demos.kaazing.com/jms"), "", "");
                 break;
             case 1:
                 demo = new JavaJMSClientDemo(new URI(args[0]), "", "");
                 break;
             case 2:
-                demo = new JavaJMSClientDemo(new URI("ws://sandbox.kaazing.net/jms"), args[0], args[1]);
+                demo = new JavaJMSClientDemo(new URI("ws://demos.kaazing.com/jms"), args[0], args[1]);
                 break;
             case 3:
                 demo = new JavaJMSClientDemo(new URI(args[0]), args[1], args[2]);
