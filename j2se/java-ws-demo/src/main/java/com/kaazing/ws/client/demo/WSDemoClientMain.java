@@ -9,10 +9,10 @@ import java.net.URISyntaxException;
 
 public class WSDemoClientMain {
     public static void main(String[] args) throws InterruptedException, URISyntaxException, IOException, JMSException {
-        JavaWsClientDemo demo = new JavaWsClientDemo(new URI("ws://sandbox.kaazing.net/echo"));
+        JavaWsClientDemo demo = new JavaWsClientDemo(new URI("ws://demos.kaazing.com/echo"));
         switch (args.length){
             case 0:
-                demo = new JavaWsClientDemo(new URI("ws://sandbox.kaazing.net/echo"));
+                demo = new JavaWsClientDemo(new URI("ws://demos.kaazing.com/echo"));
                 break;
             case 1:
                 demo = new JavaWsClientDemo(new URI(args[0]));
