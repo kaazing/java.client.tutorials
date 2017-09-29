@@ -7,7 +7,7 @@
     <string name="disconnectBtn_label">Disconnect</string>
     <string name="destination_label">Destination</string>
     <string name="destination_default">/topic/destination</string>
-    <string name="location_default">wss://sandbox.kaazing.net/jms</string>
+    <string name="location_default">wss://demos.kaazing.com/jms</string>
     <string name="subscribe_label">Subscribe</string>
     <string name="unsubscribe_label">Unsubscribe</string>
     <string name="message_label">Message</string>
