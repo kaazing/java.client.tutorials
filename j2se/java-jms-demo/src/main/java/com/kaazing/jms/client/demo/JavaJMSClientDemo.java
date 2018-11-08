@@ -3,6 +3,7 @@ package com.kaazing.jms.client.demo;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.PasswordAuthentication;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Properties;
@@ -26,6 +27,10 @@ import com.kaazing.gateway.jms.client.JmsInitialContext;
 import com.kaazing.net.http.HttpRedirectPolicy;
 import com.kaazing.net.ws.WebSocketFactory;
 
+import com.kaazing.net.auth.BasicChallengeHandler;
+import com.kaazing.net.auth.ChallengeHandler;
+import com.kaazing.net.auth.LoginHandler;
+
 public class JavaJMSClientDemo {
     private InitialContext jndiInitialContext;
     private ConnectionFactory connectionFactory;
@@ -47,7 +52,7 @@ public class JavaJMSClientDemo {
     }
 
     public void handleConnection() throws JMSException {
-        if(login.equals("") && password.equals("")){
+        if(login.equals("") && password.equals("")) {
             System.out.println("Connecting to: " + url + ". Please wait!");
         }else {
             System.out.println("Connecting to: " + url + " with username: " + login + "and password: " + password + ". Please wait!");
@@ -64,15 +69,16 @@ public class JavaJMSClientDemo {
             connectionFactory = (ConnectionFactory) jndiInitialContext.lookup("ConnectionFactory");
         } catch (NamingException e) {
             throw new RuntimeException("Error locating connection factory for JMS!", e);
-        }
+        }      
         JmsConnectionFactory jmsConnectionFactory = (JmsConnectionFactory) connectionFactory;
         jmsConnectionFactory.setGatewayLocation(url);
         WebSocketFactory webSocketFactory = jmsConnectionFactory.getWebSocketFactory();
         webSocketFactory.setDefaultRedirectPolicy(HttpRedirectPolicy.ALWAYS);
+        webSocketFactory.setDefaultChallengeHandler(createChallengeHandler());
         try {
             connection = connectionFactory.createConnection(login, password);
         } catch (JMSException e) {
-            System.out.println("EXCEPTION: " + e.getMessage() + ".\n" +
+            System.out.println("EXCEPTION: " + e.getMessage() + ".\n" + 
                     " Please check the inputed URI, username, password and restart the demo!");
             throw new RuntimeException("Error connecting to gateway with " + url.toString() + ", credentials " + login + "/" + password, e);
         }
@@ -120,7 +126,7 @@ public class JavaJMSClientDemo {
                     } catch (JMSException e) {
                         e.printStackTrace();
                     }
-                } else {
+                }else {
                     System.err.println("Received message of an unexpected type " + message.getClass().getName());
                 }
             });
@@ -129,7 +135,6 @@ public class JavaJMSClientDemo {
             connection.stop();
             connection.close();
             throw new RuntimeException("Cannot create messages listener for subscription topic " + subTopicName, e);
-
         }
         Destination pubDestination;
         try {
@@ -139,7 +144,6 @@ public class JavaJMSClientDemo {
             session.close();
             connection.stop();
             connection.close();
-
             throw new RuntimeException("Cannot locate publishing topic " + pubTopicName, e);
         }
         try {
@@ -160,7 +164,6 @@ public class JavaJMSClientDemo {
         connection.stop();
         connection.close();
         System.out.println("Kaazing Java JMS Demo terminated successfully");
-
     }
 
     public void sendMessage(String message) {
@@ -172,5 +175,26 @@ public class JavaJMSClientDemo {
             System.err.println("Error sending message [" + message + "]! " + e.getMessage());
         }
         System.out.println("-> MESSAGE PUBLISHED: " + message);
+    }
+    
+    private ChallengeHandler createChallengeHandler() {
+        final LoginHandler loginHandler = new LoginHandler() {
+            private String username;
+            private char[] passwordLH;
+            @Override
+            public PasswordAuthentication getCredentials() {
+                try {   
+                    username = login;
+                    passwordLH = password.toCharArray();
+                
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return new PasswordAuthentication(username, passwordLH);
+            }
+        };
+        BasicChallengeHandler challengeHandler = BasicChallengeHandler.create();
+        challengeHandler.setLoginHandler(loginHandler);
+        return challengeHandler;
     }
 }
